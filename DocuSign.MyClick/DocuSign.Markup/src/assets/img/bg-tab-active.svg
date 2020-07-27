@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="647px" height="232px" viewBox="0 0 647 232" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>1ED4CFC5-F6E0-4E57-A76E-BDFD6F61AC4E@1,5x</title>
+    <defs>
+        <path d="M317,408 L836.039238,408 C839.576158,408 842.693305,410.322572 843.70499,413.711716 L861.31693,472.711716 C861.762594,474.20469 861.762594,475.79531 861.31693,477.288284 L843.70499,536.288284 C842.693305,539.677428 839.576158,542 836.039238,542 L317,542 C312.581722,542 309,538.418278 309,534 L309,416 C309,411.581722 312.581722,408 317,408 Z" id="path-1"></path>
+        <filter x="-13.5%" y="-54.1%" width="126.9%" height="211.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="24.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.163474422   0 0 0 0 0.223363827   0 0 0 0 0.327898551  0 0 0 0.061871722 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="HomePage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rectangle" transform="translate(-260.000000, -361.000000)">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
