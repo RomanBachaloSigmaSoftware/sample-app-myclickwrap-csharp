@@ -16,8 +16,8 @@ namespace DocuSign.MyClick.COVID19Waiver.UnitTests
 {
     public class ClickWrapControllerTests
     {
-        private readonly ClickWrapController _sut;
         private readonly Mock<IClickWrapService> _clickWrapService;
+        private readonly ClickWrapController _sut;
 
         public ClickWrapControllerTests()
         {
@@ -25,30 +25,35 @@ namespace DocuSign.MyClick.COVID19Waiver.UnitTests
             _sut = new ClickWrapController(_clickWrapService.Object);
         }
 
-        [Theory, AutoData]
+        [Theory]
+        [AutoData]
         public void Index_WhenGetClickWrap_ReturnsCorrectResult(
             Account account,
             User user)
         {
             // Arrange 
             InitContext(account, user);
-            var clickWrap = new ClickWrap { ClickwrapId = "1", ClickwrapName = "Covid19Waiver" };
+            var clickWrap = new ClickWrap
+            {
+                ClickwrapId = "1",
+                ClickwrapName = "Covid19Waiver"
+            };
             _clickWrapService
                 .Setup(c => c.GetClickWrap(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(() => clickWrap);
 
             // Act
-            var result = _sut.Index();
+            IActionResult result = _sut.Index();
 
             // Assert
             result.Should().BeEquivalentTo(new OkObjectResult
-                (new ResponseClickWrapModel
-                {
-                    AccountId = account.Id,
-                    ClickWrap = clickWrap,
-                    UserId = user.Id,
-                    DocuSignBaseUrl = account.BaseUri
-                }));
+            (new ResponseClickWrapModel
+            {
+                AccountId = account.Id,
+                ClickWrap = clickWrap,
+                UserId = user.Id,
+                DocuSignBaseUrl = account.BaseUri
+            }));
         }
 
         private void InitContext(Account account, User user)

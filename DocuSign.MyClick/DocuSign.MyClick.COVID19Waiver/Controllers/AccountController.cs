@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using System.Threading.Tasks;
 using DocuSign.MyClick.COVID19Waiver.Exceptions;
 using DocuSign.MyClick.COVID19Waiver.Security;
 using Microsoft.AspNetCore.Authentication;
@@ -19,7 +20,7 @@ namespace DocuSign.MyClick.COVID19Waiver.Controllers
         }
 
         [HttpGet]
-        public async System.Threading.Tasks.Task<IActionResult> Login(string returnUrl = null)
+        public async Task<IActionResult> Login(string returnUrl = null)
         {
             (ClaimsPrincipal, AuthenticationProperties) authResult;
 
@@ -30,7 +31,7 @@ namespace DocuSign.MyClick.COVID19Waiver.Controllers
             catch (ConsentRequiredException)
             {
                 return Redirect(_docuSignAuthenticationService.GetConsentUrl(
-                        $"{Request.Scheme}://{Request.Host}/Account/Login"));
+                    $"{Request.Scheme}://{Request.Host}/Account/Login"));
             }
 
             await HttpContext.RequestServices
@@ -44,7 +45,7 @@ namespace DocuSign.MyClick.COVID19Waiver.Controllers
         }
 
         [HttpGet]
-        [Route("/api/isauthenticated")]
+        [Route("/api/IsAuthenticated")]
         public IActionResult IsAuthenticated()
         {
             return Ok(User.Identity.IsAuthenticated);

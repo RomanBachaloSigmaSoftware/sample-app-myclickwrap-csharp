@@ -1,0 +1,312 @@
+// Scenarios
+.myclick-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
+
+  @include media-breakpoint-up(lg) {
+    padding: 2.5rem 0 4.125rem;
+  }
+
+  h1 {
+    line-height: 1;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.scenario-section {
+  background: $bg-gradient;
+
+  .h2 {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .scenario-link {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    background-color: $white;
+    &:focus {
+      outline: none;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding: 1.25rem;
+      margin: 0;
+      background-color: transparent;
+      @include box-shadow(none);
+    }
+
+    // scenario icon
+    &-icon {
+      flex: 0 0 36px;
+      margin: -12px 2px 0 -4px;
+
+      @include media-breakpoint-up(lg) {
+        margin: -3px 2px 0 -10px;
+      }
+    }
+
+    &-body {
+      flex: 1;
+
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+    }
+
+    &-title {
+      font-size: $scenario-nav-link-font-size-sm;
+      font-weight: 700;
+      color: $text-muted;
+      border: 0;
+      background: none;
+      outline: none;
+      padding-right: 15px;
+      position: relative;
+
+      // chevron
+      .chevron {
+        position: absolute;
+        top: calc(50% - 4px);
+        right: 0;
+
+        @include media-breakpoint-up(lg) {
+          top: 10px;
+        }
+
+        &:before {
+          content: "";
+          border-style: solid;
+          border-width: 1.5px 1.5px 0 0;
+          display: inline-block;
+          vertical-align: top;
+          position: relative;
+          left: 0;
+          top: 0;
+          height: 8px;
+          width: 8px;
+          transform: rotate(-45deg); // up
+
+          @include media-breakpoint-up(lg) {
+            transform: rotate(45deg); // right
+          }
+        }
+      }
+
+      &.collapsed {
+        .chevron:before {
+          transform: rotate(135deg); // bottom
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        font-size: $scenario-nav-link-font-size;
+      }
+    }
+
+    &-text {
+      font-weight: 300;
+      margin: 5px 0;
+      color: $blue-200;
+
+      @include media-breakpoint-up(lg) {
+        order: 3;
+        flex: 0 0 90%;
+        margin: 10px 0 0;
+      }
+    }
+
+    .btn {
+      @include media-breakpoint-up(lg) {
+        order: 2;
+        visibility: hidden;
+      }
+    }
+
+    // hover/active
+    &:hover,
+    &.active {
+      @include media-breakpoint-up(lg) {
+        background: url("../img/bg-tab-active.svg") no-repeat;
+        background-size: 100% 100%;
+        margin: -50px;
+        padding: 70px;
+      }
+
+      .scenario-link-title {
+        color: $body-color;
+      }
+
+      .btn {
+        visibility: visible;
+      }
+    }
+  }
+
+  // Accordion on Mobiles
+  .scenario-tabs {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+  }
+
+  // Tabs content
+  .tab-content {
+    @include media-breakpoint-up(lg) {
+      float: right;
+      margin-bottom: -7.75rem;
+    }
+
+    > .tab-pane {
+      @include media-breakpoint-down(md) {
+        display: block !important;
+        opacity: 1;
+      }
+    }
+  }
+
+  .tab-pane {
+    > .collapse:not(.show) {
+      @include media-breakpoint-up(lg) {
+        display: block;
+      }
+    }
+
+    .scenario-link {
+      margin: $grid-gutter-width/2 -#{$grid-gutter-width/2};
+
+      &-title {
+        text-decoration: none;
+        display: block;
+      }
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+
+    // Card inside Tab Content
+    .card {
+      @include box-shadow(none);
+      @include border-radius(0);
+      margin: 0 -#{$grid-gutter-width/2};
+      padding: 0 $grid-gutter-width/2;
+
+      @include media-breakpoint-up(lg) {
+        box-shadow: $card-box-shadow;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        @include border-radius(0.5rem);
+
+        &:after {
+          @include media-breakpoint-up(lg) {
+            content: "";
+            position: absolute;
+            top: -10px;
+            right: -30px;
+            bottom: 0;
+            transform: rotate(6deg);
+            border-radius: 8px;
+            background-color: #d8f3f9;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+          }
+        }
+      }
+    }
+
+    .card-header {
+      display: none;
+
+      @include media-breakpoint-up(lg) {
+        display: block;
+        font-weight: $card-cap-font-weight;
+        font-size: 1.25rem;
+        padding: $card-cap-spacer-y $card-spacer-x;
+      }
+    }
+
+    .card-body {
+      padding: $grid-gutter-width/2 0;
+
+      @include media-breakpoint-up(lg) {
+        padding: $card-spacer-y $card-spacer-x;
+      }
+
+      // scroll inside card
+      .scroll {
+        @include media-breakpoint-up(lg) {
+          overflow-y: auto;
+          overflow-x: hidden;
+          padding-right: 24px;
+          height: 530px;
+
+          &::-webkit-scrollbar {
+            width: 8px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background-color: rgba(45, 126, 221, 0.11);
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: rgba(45, 126, 221, 0.11);
+            border-radius: 2px;
+            margin: 0 1px;
+            width: 6px;
+          }
+        }
+      }
+    }
+
+    &.active {
+      .scenario-link-title {
+        color: $body-color;
+      }
+    }
+  }
+
+  // triangle shapes
+  .shape {
+    @include media-breakpoint-up(lg) {
+      position: absolute;
+      background-repeat: no-repeat;
+
+      &-1 {
+        bottom: 16px;
+        left: -42px;
+        height: 30px;
+        width: 30px;
+        background-image: url("../img/shape-1.svg");
+        background-size: 30px 30px;
+      }
+
+      &-2 {
+        top: -70px;
+        right: 100px;
+        height: 50px;
+        width: 50px;
+        background-image: url("../img/shape-2.svg");
+        background-size: 50px 50px;
+      }
+
+      &-3 {
+        bottom: 95px;
+        right: -65px;
+        height: 30px;
+        width: 30px;
+        background-image: url("../img/shape-3.svg");
+        background-size: 30px 30px;
+      }
+    }
+  }
+}

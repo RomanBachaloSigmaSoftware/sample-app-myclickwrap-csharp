@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -27,8 +26,7 @@ namespace DocuSign.MyClick.COVID19Waiver.Security
         }
 
         public static void ConfigureDocuSignJWTAuthentication(
-            this IServiceCollection services,
-            IConfiguration configuration)
+            this IServiceCollection services)
         {
             services.AddMemoryCache();
             services.AddSession();
@@ -36,37 +34,37 @@ namespace DocuSign.MyClick.COVID19Waiver.Security
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddAuthentication(options =>
-            {
-                options.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            })
-            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, config =>
-            {
-                config.Cookie.Name = "UserLoginCookie";
-                config.LoginPath = "/Account/Login";
-                config.SlidingExpiration = true;
-                config.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-                config.Events = new CookieAuthenticationEvents
                 {
-                    OnRedirectToLogin = context =>
-                   {
-                       // Return 401 HttpCode for api calls instead of redirecting to login page 
-                       if (context.Request.Path.StartsWithSegments("/api"))
-                       {
-                           context.Response.Headers["Location"] = context.RedirectUri;
-                           context.Response.StatusCode = 401;
-                       }
-                       else
-                       {
-                           context.Response.Redirect(context.RedirectUri);
-                       }
+                    options.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                })
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, config =>
+                {
+                    config.Cookie.Name = "UserLoginCookie";
+                    config.LoginPath = "/Account/Login";
+                    config.SlidingExpiration = true;
+                    config.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                    config.Events = new CookieAuthenticationEvents
+                    {
+                        OnRedirectToLogin = context =>
+                        {
+                            // Return 401 HttpCode for api calls instead of redirecting to login page 
+                            if (context.Request.Path.StartsWithSegments("/api"))
+                            {
+                                context.Response.Headers["Location"] = context.RedirectUri;
+                                context.Response.StatusCode = 401;
+                            }
+                            else
+                            {
+                                context.Response.Redirect(context.RedirectUri);
+                            }
 
-                       return Task.CompletedTask;
-                   }
-                };
-            });
+                            return Task.CompletedTask;
+                        }
+                    };
+                });
             services.AddAuthorization(options =>
             {
                 var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(
@@ -81,7 +79,7 @@ namespace DocuSign.MyClick.COVID19Waiver.Security
             this IApplicationBuilder app,
             ILoggerFactory loggerFactory)
         {
-            var logger = loggerFactory.CreateLogger<Startup>();
+            ILogger<Startup> logger = loggerFactory.CreateLogger<Startup>();
             app.UseExceptionHandler(appError =>
             {
                 appError.Run(async context =>
@@ -101,6 +99,7 @@ namespace DocuSign.MyClick.COVID19Waiver.Security
                                 {
                                     context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                                 }
+
                                 break;
                             case AuthenticationException error:
                                 logger.LogError($"AuthenticationException occured: {error.Message}");
@@ -122,4 +121,3 @@ namespace DocuSign.MyClick.COVID19Waiver.Security
         }
     }
 }
-

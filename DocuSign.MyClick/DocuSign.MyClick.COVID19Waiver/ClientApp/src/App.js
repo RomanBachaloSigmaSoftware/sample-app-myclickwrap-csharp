@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router';
+import React, { Suspense } from 'react';
+import { Switch } from 'react-router-dom';
 import { Layout } from './components/Layout';
-import { Home } from './components/Home';  
+import { PrivateRoute } from './components/PrivateRoute';
+import { Home } from './features/Home';
+import './assets/scss/main.scss';
 
-import './custom.css'
+const App = () => {
+  const routes = (
+    <Switch>
+      <PrivateRoute path='/'>
+        <Home />
+      </PrivateRoute>
+    </Switch>
+  );
 
-export default class App extends Component {
-  static displayName = App.name;
+  return (
+    <Suspense fallback=''>
+      <Layout>{routes}</Layout>
+    </Suspense>
+  );
+};
 
-  render () {
-    return (
-      <Layout>
-        <Route exact path='/' component={Home} /> 
-        <Route path='/covid19' component={() => {
-                window.location.href = '/ClickWrap';
-        return null;
-    }} />
-      </Layout>
-    );
-  }
-}
+export default App;

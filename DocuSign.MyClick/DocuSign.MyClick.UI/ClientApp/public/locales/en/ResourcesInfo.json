@@ -1,3 +1,15 @@
 {
-    "Title": "Resources:"
+  "Title": "Resources:",
+  "Link1": {
+    "Title": "DocuSign Developer Center",
+    "URL": "https://developers.docusign.com/"
+  },
+  "Link2": {
+    "Title": "Get a free Demo Account",
+    "URL": "https://go.docusign.com/sandbox/productshot/"
+  },
+  "Link3": {
+    "Title": "ClickAPI",
+    "URL": "https://developers.docusign.com/click-api"
+  }
 }

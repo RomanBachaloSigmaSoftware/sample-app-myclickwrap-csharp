@@ -9,15 +9,18 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Moq;
 using Xunit;
 
 namespace DocuSign.MyClick.COVID19Waiver.UnitTests
 {
+
     public class AccountControllerTests
     {
         private readonly Mock<IServiceProvider> _serviceProviderMock;
         private readonly Mock<IDocuSignAuthenticationService> _docuSignAuthServiceMock;
+        private readonly Mock<IUrlHelper> _urlHelperMock;
         private readonly AccountController _sut;
 
         public AccountControllerTests()
@@ -40,11 +43,16 @@ namespace DocuSign.MyClick.COVID19Waiver.UnitTests
             _serviceProviderMock
                 .Setup(_ => _.GetService(typeof(IAuthenticationService)))
                 .Returns(authServiceMock.Object);
+            var urlHelperFactory = new Mock<IUrlHelperFactory>();
+            _serviceProviderMock
+                .Setup(s => s.GetService(typeof(IUrlHelperFactory)))
+                .Returns(urlHelperFactory.Object);
 
             var mockIdentity = new Mock<IIdentity>();
             mockIdentity.SetupGet(x => x.IsAuthenticated).Returns(true);
             mockIdentity.SetupGet(x => x.Name).Returns("TestUser");
             mockIdentity.SetupGet(x => x.AuthenticationType).Returns("Test");
+            _urlHelperMock = new Mock<IUrlHelper>();
 
             _sut = new AccountController(_docuSignAuthServiceMock.Object)
             {
@@ -55,7 +63,8 @@ namespace DocuSign.MyClick.COVID19Waiver.UnitTests
                         RequestServices = _serviceProviderMock.Object,
                         User = new ClaimsPrincipal(mockIdentity.Object)
                     }
-                }
+                },
+                Url = _urlHelperMock.Object
             };
         }
 
@@ -65,11 +74,38 @@ namespace DocuSign.MyClick.COVID19Waiver.UnitTests
             //Arrange 
 
             //Act
-            var result = _sut.Login().Result;
+            IActionResult result = _sut.Login().Result;
 
             //Assert
             result.Should().BeEquivalentTo(new LocalRedirectResult("/"));
         }
+
+        [Fact]
+        public void Login_WhenReturnUrlProviderAndUrlIsLocal_SignsInUserAndRedirectsToReturnUrl()
+        {
+            //Arrange 
+            _urlHelperMock.Setup(x => x.IsLocalUrl("/returnurl")).Returns(true);
+
+            //Act
+            IActionResult result = _sut.Login("/returnurl").Result;
+
+            //Assert
+            result.Should().BeEquivalentTo(new LocalRedirectResult("/returnurl"));
+        }
+
+        [Fact]
+        public void Login_WhenReturnUrlProviderButUrlIsNotLocal_SignsInUserButRedirectsToDefaultUrl()
+        {
+            //Arrange 
+            _urlHelperMock.Setup(x => x.IsLocalUrl("htts://returnurl")).Returns(false);
+
+            //Act
+            IActionResult result = _sut.Login("htts://returnurl").Result;
+
+            //Assert
+            result.Should().BeEquivalentTo(new LocalRedirectResult("/"));
+        }
+
 
         [Fact]
         public void Login_When—onsentNotApproved_UserRedirectedConsentApprovalPage()
@@ -83,7 +119,7 @@ namespace DocuSign.MyClick.COVID19Waiver.UnitTests
                 .Returns("http://testConsentUrl");
 
             //Act
-            var result = _sut.Login().Result;
+            IActionResult result = _sut.Login().Result;
 
             //Assert
             result.Should().BeEquivalentTo(new LocalRedirectResult("http://testConsentUrl"));
@@ -95,7 +131,7 @@ namespace DocuSign.MyClick.COVID19Waiver.UnitTests
             //Arrange 
 
             //Act
-            var result = _sut.IsAuthenticated();
+            IActionResult result = _sut.IsAuthenticated();
 
             //Assert
             result.Should().BeEquivalentTo(new OkObjectResult(true));

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace DocuSign.MyClick.COVID19Waiver
@@ -17,7 +18,7 @@ namespace DocuSign.MyClick.COVID19Waiver
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            var httpContext = context.HttpContext;
+            HttpContext httpContext = context.HttpContext;
             if (httpContext.User.Identity.IsAuthenticated)
             {
                 _context.Init(httpContext.User);

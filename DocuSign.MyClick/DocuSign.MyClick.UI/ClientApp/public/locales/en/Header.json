@@ -1,6 +1,9 @@
 {
-    "ApplicationName": "MyClicks",
-    "Title": "MyClicks",
-    "GitHubLink": "GitHub Sourse",
-    "AboutLink": "About"  
+  "ApplicationName": "MyClick",
+  "Title": "MyClick",
+  "GitHubLink": {
+    "Title": "GitHub Sourse",
+    "URL": "https://github.com/docusign/"
+  },
+  "AboutLink": "About"
 }

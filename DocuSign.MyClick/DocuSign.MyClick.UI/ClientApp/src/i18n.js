@@ -1,26 +1,19 @@
-import i18n from 'i18next';
-import Backend from 'i18next-xhr-backend';
-import { initReactI18next } from 'react-i18next';
+import i18n from "i18next";
+import Backend from "i18next-xhr-backend";
+import { initReactI18next } from "react-i18next";
 
 i18n
   .use(Backend)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en',
+    fallbackLng: "en",
     debug: false,
-    ns: [
-      'Header',
-      'Footer',
-      'About',
-      'Scenarios',
-      'ResourcesInfo',
-      'PageCaption',
-    ],
-    transKeepBasicHtmlNodesFor: ['h3', 'h4', 'strong', 'i', 'p'],
-    keySeparator: '.',
+    ns: ["Header", "Footer", "About", "Scenarios", "ResourcesInfo", "Home"],
+    transKeepBasicHtmlNodesFor: ["h3", "h4", "strong", "i", "p"],
+    keySeparator: ".",
     interpolation: {
       escapeValue: false,
-      formatSeparator: ',',
+      formatSeparator: ",",
     },
     react: {
       wait: true,

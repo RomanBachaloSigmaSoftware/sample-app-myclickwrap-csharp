@@ -13,7 +13,7 @@ namespace DocuSign.MyClick.COVID19Waiver
 
         public void Init(ClaimsPrincipal principalUser)
         {
-            var userId = principalUser.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userId = principalUser.FindFirstValue(ClaimTypes.NameIdentifier);
             User = new User(
                 userId,
                 principalUser.FindFirstValue(ClaimTypes.Name));

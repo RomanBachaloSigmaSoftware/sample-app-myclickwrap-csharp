@@ -39,7 +39,8 @@ namespace DocuSign.MyClick.COVID19Waiver.UnitTests
                 .Setup(x => x.Execute(It.IsAny<IRestRequest>(), Method.GET))
                 .Returns(new RestResponse
                 {
-                    Content = "{\"clickwraps\":[{\"clickwrapId\":\"1\",\"clickwrapName\":\"Covid19Waiver\",\"status\":\"active\"}]}",
+                    Content =
+                        "{\"clickwraps\":[{\"clickwrapId\":\"1\",\"clickwrapName\":\"Covid19Waiver\",\"status\":\"active\"}]}",
                     StatusCode = HttpStatusCode.OK,
                 });
 
@@ -109,6 +110,26 @@ namespace DocuSign.MyClick.COVID19Waiver.UnitTests
             //Assert 
             Assert.Throws<InvalidOperationException>(
                 () => _sut.GetClickWrap(AccountId, UserId));
+        }
+
+        [Fact]
+        public void GetClickWrap_WhenAccountIdIsNull_ThrowsArgumentNullException()
+        {
+            //Arrange
+            //Act
+            //Assert 
+            Assert.Throws<ArgumentNullException>(
+                () => _sut.GetClickWrap(null, UserId));
+        }
+
+        [Fact]
+        public void GetClickWrap_WhenUserIdIsNull_ThrowsArgumentNullException()
+        {
+            //Arrange
+            //Act
+            //Assert 
+            Assert.Throws<ArgumentNullException>(
+                () => _sut.GetClickWrap(AccountId, null));
         }
     }
 }

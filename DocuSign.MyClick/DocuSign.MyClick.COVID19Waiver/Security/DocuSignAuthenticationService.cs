@@ -18,8 +18,8 @@ namespace DocuSign.MyClick.COVID19Waiver.Security
     [ExcludeFromCodeCoverage]
     public class DocuSignAuthenticationService : IDocuSignAuthenticationService
     {
-        private readonly IConfiguration _configuration;
         private readonly ApiClient _apiClient;
+        private readonly IConfiguration _configuration;
 
         public DocuSignAuthenticationService(IConfiguration configuration)
         {
@@ -39,7 +39,12 @@ namespace DocuSign.MyClick.COVID19Waiver.Security
                     _configuration["DocuSign:AuthServer"],
                     File.ReadAllBytes(_configuration["DocuSign:RSAPrivateKeyFile"]),
                     int.Parse(_configuration["DocuSign:JWTLifeTime"]),
-                    new List<string> { "click.manage", "signature", "impersonation" });
+                    new List<string>
+                    {
+                        "click.manage",
+                        "signature",
+                        "impersonation"
+                    });
             }
             catch (ApiException e)
             {
@@ -55,14 +60,14 @@ namespace DocuSign.MyClick.COVID19Waiver.Security
 
             OAuth.UserInfo userInfo = _apiClient.GetUserInfo(authToken.access_token);
             var claims = new List<Claim>
-                {
-                    new Claim("access_token", authToken.access_token),
-                    new Claim(ClaimTypes.NameIdentifier, userInfo.Sub),
-                    new Claim(ClaimTypes.Name, userInfo.Name),
-                    new Claim("account_id", userInfo.Accounts.First(x => x.IsDefault == "true").AccountId),
-                };
+            {
+                new Claim("access_token", authToken.access_token),
+                new Claim(ClaimTypes.NameIdentifier, userInfo.Sub),
+                new Claim(ClaimTypes.Name, userInfo.Name),
+                new Claim("account_id", userInfo.Accounts.First(x => x.IsDefault == "true").AccountId)
+            };
 
-            foreach (var account in userInfo.Accounts)
+            foreach (OAuth.UserInfo.Account account in userInfo.Accounts)
             {
                 claims.Add(new Claim("accounts", JsonConvert.SerializeObject(account)));
             }
@@ -79,7 +84,7 @@ namespace DocuSign.MyClick.COVID19Waiver.Security
                         ? TimeSpan.FromSeconds(authToken.expires_in.Value)
                         : TimeSpan.FromHours(int.Parse(_configuration["DocuSign:JWTLifeTime"])))
                     - TimeSpan.FromMinutes(1),
-                IsPersistent = true,
+                IsPersistent = true
             };
 
             return (new ClaimsPrincipal(claimsIdentity), authProperties);
@@ -88,7 +93,7 @@ namespace DocuSign.MyClick.COVID19Waiver.Security
         public string GetConsentUrl(string redirectUrl)
         {
             return $"{_configuration["DocuSign:AuthorizationEndpoint"]}" +
-                   $"?response_type=code&scope=click.manage impersonation signature" +
+                   "?response_type=code&scope=click.manage impersonation signature" +
                    $"&client_id={_configuration["DocuSign:IntegrationKey"]}" +
                    $"&redirect_uri={redirectUrl}";
         }

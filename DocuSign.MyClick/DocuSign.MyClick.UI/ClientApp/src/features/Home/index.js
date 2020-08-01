@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import { PageCaption } from '../../components/PageCaption';
-import { Scenarios } from '../Scenarios';
-import { ResourcesInfo } from '../../components/ResourcesInfo';
+import React from "react";
+import { Scenarios } from "../Scenarios";
+import { useTranslation } from "react-i18next";
 
-export class Home extends Component {
-  static displayName = Home.name;
+export const Home = () => {
+  const { t } = useTranslation("Home");
 
-  render() {
-    return (
-      <>
-        <PageCaption />
+  return (
+    <>
+      <div className="myclick-header text-center">
+        <h1 className="h1">{t("Introduction1")}</h1>
+        <p className="lead">{t("Introduction2")}</p>
+      </div>
+      <div className="row">
         <Scenarios />
-        <ResourcesInfo />
-      </>
-    );
-  }
-}
+      </div>
+    </>
+  );
+};

@@ -8,7 +8,7 @@ namespace DocuSign.MyClick.COVID19Waiver.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ClickWrapController : Controller
     {
         private readonly IClickWrapService _clickWrapService;

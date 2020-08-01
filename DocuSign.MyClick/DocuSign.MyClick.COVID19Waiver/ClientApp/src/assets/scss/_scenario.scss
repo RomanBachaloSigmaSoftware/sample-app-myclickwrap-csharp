@@ -1,0 +1,15 @@
+// Scenarios
+.myclick-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
+
+  @include media-breakpoint-up(lg) {
+    padding: 2.5rem 0 4.125rem;
+  }
+
+  h1 {
+    line-height: 1;
+    margin-bottom: 1.25rem;
+  }
+}

@@ -1,0 +1,20 @@
+html,
+body {
+  height: 100%;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+
+main {
+  flex: 1;
+}
+
+
+
+.copyright {
+  font-weight: $font-weight-semi;
+}

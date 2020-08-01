@@ -22,9 +22,19 @@ namespace DocuSign.MyClick.COVID19Waiver.Services
 
         public ClickWrap GetClickWrap(string accountId, string userId)
         {
+            if (accountId == null)
+            {
+                throw new ArgumentNullException(nameof(accountId));
+            }
+
+            if (userId == null)
+            {
+                throw new ArgumentNullException(nameof(userId));
+            }
+
             var request = new RestRequest($"/accounts/{accountId}/clickwraps", DataFormat.Json);
 
-            var response = _docuSignApiProvider.DocuSignClickApiRestClient.Get(request);
+            IRestResponse response = _docuSignApiProvider.DocuSignClickApiRestClient.Get(request);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -39,10 +49,10 @@ namespace DocuSign.MyClick.COVID19Waiver.Services
                 }
             }
 
-            ClickWrapsResponse clickwrapsResponse =
+            var clickwrapsResponse =
                 JsonConvert.DeserializeObject<ClickWrapsResponse>(response.Content);
 
-            var clickWrap = clickwrapsResponse
+            ClickWrap clickWrap = clickwrapsResponse
                 .Clickwraps
                 .FirstOrDefault(x => x.ClickwrapName == ClickWrapName);
 
