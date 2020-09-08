@@ -1,0 +1,30 @@
+version: '3'
+task_definition:
+  task_execution_role: ecsTaskExecutionRole
+  ecs_network_mode: bridge
+  services:
+    local_nginx:
+        cpu_shares: 0
+        mem_limit: 256MB
+    covid19waiver:
+        cpu_shares: 0
+        mem_limit: 256MB
+    nondisclosureagreement:
+        cpu_shares: 0
+        mem_limit: 256MB
+    termsandconditions:
+        cpu_shares: 0
+        mem_limit: 256MB
+    myclickwrapui:
+        cpu_shares: 0
+        mem_limit: 256MB
+run_params:
+  network_configuration:
+    awsvpc_configuration:
+      subnets:
+        - yourAmazonEC2SubnetID1
+        - yourAmazonEC2SubnetID2
+      security_groups:
+        - yourAmazonEC2SecurityGroupID
+      assign_public_ip: ENABLED
+

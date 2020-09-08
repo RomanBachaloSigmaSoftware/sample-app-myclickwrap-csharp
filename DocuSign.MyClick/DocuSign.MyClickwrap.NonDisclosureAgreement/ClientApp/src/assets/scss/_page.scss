@@ -1,0 +1,102 @@
+html,
+body {
+  height: 100%;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+
+main {
+  flex: 1;
+}
+
+.modal-backdrop {
+  &.show {
+    opacity: 0.45;
+    background-color: #213b60;
+  }
+}
+
+
+.copyright {
+  font-weight: $font-weight-semi;
+}
+
+.has-error {
+  .invalid-feedback {
+    display: block;
+  }
+}
+
+.content {
+  min-height: calc(100vh - 106px);
+}
+
+
+.modal {
+  .modal-content {
+    background-color: #E5EFFC ;    
+  }
+  .modal-body {
+      @include media-breakpoint-up(lg) {
+          padding: 45px;
+      }
+  }
+
+  .modal-title {
+      @include media-breakpoint-up(lg) {
+          margin-bottom: 10px;
+      }
+  }
+
+  .modal-subtitle {
+      display: inline-block;
+      color: #686868;
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: 22px;
+      margin-bottom: 20px;
+      @include media-breakpoint-up(lg) {
+          margin-bottom: 30px;
+      }
+  }
+
+  .close {
+      position: absolute;
+      right: 24px;
+      top: 11px;
+      font-size: 23px;
+      color: #3c3c3d;
+      z-index: 9;
+
+      &:focus,
+      &:active {
+          outline: none;
+      }
+  }
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30%  auto;
+}
+
+// Modals
+// Padding applied to the modal body
+$modal-inner-padding:               40px 20px 30px;
+
+$modal-title-line-height:           32px;
+
+$modal-content-border-width:        0;
+$modal-content-border-radius:       8px;
+$modal-content-box-shadow-xs:       $input-box-shadow;
+
+$modal-header-border-color:         transparent;
+$modal-footer-border-color:         $modal-header-border-color;
+
+$modal-header-padding-y:            45px 30px;
+$modal-header-padding-x:            45px 50px;

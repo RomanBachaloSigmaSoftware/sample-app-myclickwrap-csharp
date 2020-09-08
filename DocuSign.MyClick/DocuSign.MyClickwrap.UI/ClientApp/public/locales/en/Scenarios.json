@@ -1,0 +1,25 @@
+{
+  "Title": "Choose your scenario",
+  "Scenario3": {
+    "Title": "Terms and Conditions",
+    "Link": "/termsandconditions/",
+    "Description": "Terms And Conditions Info",
+    "Intro": "",
+    "CodeFlow": "<strong class=\"text-uppercase\">Code flow:</strong><strong>Step 1</strong><p>When the form is submitted, we use the Envelopes: create method to send the signature request with the corresponding form information. The envelope we construct contains a document object, a recipient object of type signer, and tabs, which contain the form fields information. Since we are using embedded signing, we must also set the clientUserId property on the recipient.</p><strong>Step 2</strong><p>When the form is submitted, we use the Envelopes: create method to send the signature request with the corresponding form information. The envelope we construct contains a document object, a recipient object of type signer, and tabs, which contain the form fields information.</p><p>When the form is submitted, we use the Envelopes: create method to send the signature request with the corresponding form information. The envelope we construct contains a document object, a recipient object of type signer, and tabs, which contain the form fields information. When the form is submitted, we use the Envelopes: create method to send the signature request with the corresponding form information.</p><strong>Step 3</strong><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur autem beatae consequuntur cumque, deserunt eligendi eveniet explicabo hic impedit laudantium magni necessitatibus odio saepe sed, suscipit tempora totam voluptate.</p></div>"
+  },
+  "Scenario2": {
+    "Title": "Nondisclosure agreement",
+    "Link": "/nondisclosureagreement/",
+    "Description": "Nondisclosure agreement Info",
+    "Intro": "",
+    "CodeFlow": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto non numquam ratione tempora. Aperiam architecto asperiores consequatur deserunt eligendi explicabo facilis, illum ipsum magnam necessitatibus nisi odio quaerat quam quo."
+  },
+  "Scenario1": {
+    "Title": "COVID-19 Health Declaration",
+    "Link": "/covid19waiver/",
+    "Description": "COVID-19 Health Declaration Info",
+    "Intro": "This scenario shows how the Click API can be used to build a simple tool to enable organizations to capture consent from individuals releasing the organization from responsibility in case they contract COVID-19 while on their premises.",
+    "CodeFlow": "<strong class=\"text-uppercase\">Code flow:</strong><strong>Step 1</strong><p>When the form is submitted, we use the Envelopes: create method to send the signature request with the corresponding form information. The envelope we construct contains a document object, a recipient object of type signer, and tabs, which contain the form fields information. Since we are using embedded signing, we must also set the clientUserId property on the recipient.</p><strong>Step 2</strong><p>When the form is submitted, we use the Envelopes: create method to send the signature request with the corresponding form information. The envelope we construct contains a document object, a recipient object of type signer, and tabs, which contain the form fields information.</p><p>When the form is submitted, we use the Envelopes: create method to send the signature request with the corresponding form information. The envelope we construct contains a document object, a recipient object of type signer, and tabs, which contain the form fields information. When the form is submitted, we use the Envelopes: create method to send the signature request with the corresponding form information.</p><strong>Step 3</strong><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur autem beatae consequuntur cumque, deserunt eligendi eveniet explicabo hic impedit laudantium magni necessitatibus odio saepe sed, suscipit tempora totam voluptate.</p></div>"
+  },
+  "TryMeButton": "Try Me"
+}

@@ -1,0 +1,19 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS publish
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs 
+
+WORKDIR /src
+COPY DocuSign.MyClickwrap.NonDisclosureAgreement .
+RUN ls /src/ClientApp
+RUN dotnet restore "DocuSign.MyClickwrap.NonDisclosureAgreement.csproj"
+RUN dotnet publish "DocuSign.MyClickwrap.NonDisclosureAgreement.csproj" -c Release -o /app/publish 
+RUN ls /app/publish/ClientApp
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS final
+EXPOSE 80
+WORKDIR /app
+COPY --from=publish /app/publish .
+RUN ls /app/ClientApp
+
+ENTRYPOINT ["dotnet", "DocuSign.MyClickwrap.NonDisclosureAgreement.dll"]

@@ -1,0 +1,50 @@
+// Headings
+
+.h1 {
+  font-size: $h1-font-size-sm;
+
+  @include media-breakpoint-up(md) {
+    font-size: $h1-font-size;
+  }
+}
+
+.h2 {
+  font-size: $h2-font-size-sm;
+
+  @include media-breakpoint-up(md) {
+    font-size: $h2-font-size;
+  }
+}
+
+.h3 {
+  font-size: $h3-font-size-sm;
+
+  @include media-breakpoint-up(md) {
+    font-size: $h3-font-size;
+  }
+}
+
+.lead {
+  font-size: $lead-font-size-sm;
+
+  @include media-breakpoint-up(md) {
+    font-size: $lead-font-size;
+  }
+}
+
+
+.list-inline-item {
+  display: block;
+
+  @include media-breakpoint-up(md) {
+    display: inline-block;
+  }
+
+  &:before {
+    content: '';
+   // background: url("../img/bullet.svg") no-repeat;
+    display: inline-block;
+    height: 11px;
+    width: 11px;
+  }
+}

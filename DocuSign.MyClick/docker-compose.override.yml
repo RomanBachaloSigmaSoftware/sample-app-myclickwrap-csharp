@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  docusign.myclickwrap.covid19waiver: 
+    ports:
+      - "80" 
+  docusign.myclickwrap.nondisclosureagreement:
+    ports:
+      - "80"
+  docusign.myclickwrap.termsandconditions:
+    ports:
+      - "80"
+  docusign.myclickwrap.ui:
+    ports:
+      - "80"
+  

@@ -1,0 +1,107 @@
+// variable overrides
+// colors
+$blue: #2d7edd;
+$light-blue: #4d6280;
+$dark-blue: #213b60;
+$blue-100: #5a9ae5;
+$blue-200: #586B87;
+$white: #fff;
+
+// palette
+$primary: $blue;
+
+// font weight
+$font-weight-light: 300;
+$font-weight-semi: 500;
+$font-weight-bold: 600;
+$font-weight-bolder: 700;
+
+$body-bg: #fdfdfd;
+$body-color: $dark-blue;
+$font-size-base: .9rem;
+$line-height-base: 1.33;
+$font-weight-base: $font-weight-light;
+$font-family-sans-serif: 'Jost', Arial, Helvetica,  sans-serif;
+
+$border-color: #efefef;
+$text-muted: #798aa0;
+
+// link
+$link-color: $light-blue !default;
+$link-decoration: underline;
+$link-hover-color: $blue;
+$link-hover-decoration: $link-decoration;
+
+// headings
+$headings-font-weight: $font-weight-bolder;
+$h1-font-size: 3.25rem;
+$h1-font-size-sm: 1.5rem;
+
+$h2-font-size: 1.5rem;
+$h2-font-size-sm: 1rem;
+
+$h3-font-size: 1.125rem;
+$h3-font-size-sm: 1.25rem;
+
+$font-size-lg: 1.375rem;
+
+// lead text
+$lead-font-weight: $font-weight-bold;
+$lead-font-size: 1.25rem;
+$lead-font-size-sm: .9rem;
+
+// navs
+$nav-link-font-size: 1.25rem;
+
+// navbar
+$navbar-brand-height: 2.5rem;
+$navbar-light-brand-color: #213b60;
+$navbar-light-brand-hover-color: $navbar-light-brand-color;
+
+$navbar-nav-font-size: 1.25rem;
+$navbar-nav-font-weight: 500;
+$navbar-light-color: $dark-blue;
+$navbar-light-hover-color: $primary;
+$navbar-nav-link-padding-x: 30px;
+
+// Navbar toggler
+$navbar-toggler-icon-size: 1.5rem;
+$navbar-toggler-padding-x:0;
+$navbar-toggler-padding-y:0;
+$navbar-light-toggler-border-color: transparent;
+
+// buttons
+$btn-font-weight: $font-weight-bolder;
+$btn-font-size: .68rem;
+$btn-line-height: 2.3;
+
+//scenario nav link
+$scenario-nav-link-font-size: 1.25rem;
+$scenario-nav-link-font-size-sm: 1rem;
+
+// alert
+$alert-font-weight: $font-weight-semi;
+$alert-border-width: 0;
+$alert-padding-x: .75rem;
+$alert-padding-y: .75rem;
+$alert-border-radius: .5rem;
+
+// alert primary
+$alert-primary-bg: rgba(45,126,221,0.11);
+$alert-margin-bottom: 1.56rem;
+
+// card
+$card-bg: #f8faff;
+$card-border-width: 0;
+$card-border-radius: .5rem;
+$card-box-shadow: 31px 30px 47px 0 rgba(92,99,111,.08);
+$card-spacer-x: 2rem;
+$card-spacer-y: 2rem;
+
+$card-cap-font-weight: bold;
+$card-cap-color: $white;
+$card-cap-bg: $primary;
+$card-cap-spacer-y: .75rem;
+
+$bg-gradient: linear-gradient(30.62deg, #fff 0%, #d8f3f990 100%);
+@import "node_modules/bootstrap/scss/bootstrap";

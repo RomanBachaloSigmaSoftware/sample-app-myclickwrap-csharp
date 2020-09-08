@@ -1,0 +1,8 @@
+.resources-section {
+  background-color: $white;
+  padding: $spacer*2 0;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 6.5625rem;
+  }
+}

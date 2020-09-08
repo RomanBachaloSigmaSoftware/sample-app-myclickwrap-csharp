@@ -1,0 +1,74 @@
+version: '3'
+
+services:
+  local_nginx: 
+    image: amazon address/myclickreverseproxy:latest
+    ports:
+      - 80:80
+    links:
+      - covid19waiver
+      - nondisclosureagreement
+      - termsandconditions
+      - myclickwrapui
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: /ecs/ECS-MyClick-nginx
+        awslogs-region: us-east-2
+        awslogs-stream-prefix: ecs
+  covid19waiver:
+    image: amazon address/myclickcovid19waiver:latest
+    ports:
+      - 4545:80
+    entrypoint: 
+      - dotnet
+      - DocuSign.MyClickwrap.COVID19Waiver.dll
+    working_dir: /app
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: /ecs/ECS-MyClick-covid19waiver
+        awslogs-region: us-east-2
+        awslogs-stream-prefix: ecs
+  nondisclosureagreement:
+    image: amazon address/myclicknondisclosureagreement:latest
+    ports:
+      - 4546:80
+    entrypoint: 
+      - dotnet
+      - DocuSign.MyClickwrap.NonDisclosureAgreement.dll
+    working_dir: /app
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: /ecs/ECS-MyClick-nondisclosureagreement
+        awslogs-region: us-east-2
+        awslogs-stream-prefix: ecs
+  termsandconditions:
+    image: amazon address/myclicktermsandconditions:latest
+    ports:
+      - 4547:80
+    entrypoint: 
+      - dotnet
+      - DocuSign.MyClickwrap.TermsAndConditions.dll
+    working_dir: /app
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: /ecs/ECS-MyClick-termsandconditions
+        awslogs-region: us-east-2
+        awslogs-stream-prefix: ecs
+  myclickwrapui:
+    image: amazon address/myclickwrapui:latest
+    ports:
+      - 4548:80
+    entrypoint: 
+      - dotnet
+      - DocuSign.MyClickwrap.UI.dll
+    working_dir: /app
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: /ecs/ECS-MyClick-myclickwrapui
+        awslogs-region: us-east-2
+        awslogs-stream-prefix: ecs

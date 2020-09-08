@@ -1,0 +1,8 @@
+{
+  "Title": "MyClickwrap Sample App",
+  "Description": "<p>A sample MyClickwrap application that demonstrates DocuSign Click API.</p></p>",
+  "SourceButton": "Source on GitHub: ",
+  "GitHubLink": "https://github.com/docusign/Sigma-MyClickwrapApp/",
+  "ScenariosList": "<h4>MyClickwrap scenarios:</h4><ul><li>COVID-19 Waiver</li><li>Nondisclosure agreement</li><li>Terms And Conditions</li></ul>",
+  "AboutDocuSign": "<h3>About DocuSign</h3><ul><li>More than <strong>200 million users </strong>in <strong>188 countries</strong></li><li>More than 300,000 companies</li><li>More than 300,000 new unique users join The DocuSign Global Trust Network every day</li><li>More than 64% of documents are completed within one hour</li><li>DocuSign is available in 43 languages</li></ul>"
+}

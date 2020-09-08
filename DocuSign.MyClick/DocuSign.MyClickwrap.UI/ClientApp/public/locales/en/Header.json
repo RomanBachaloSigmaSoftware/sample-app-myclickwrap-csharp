@@ -1,0 +1,9 @@
+{
+  "ApplicationName": "MyClickwrap",
+  "Title": "MyClickwrap",
+  "GitHubLink": {
+    "Title": "GitHub Source",
+    "URL": "https://github.com/docusign/sample-app-myclickwrap-csharp"
+  },
+  "AboutLink": "About"
+}

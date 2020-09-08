@@ -1,0 +1,39 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+WORKDIR /src
+#COPY ["DocuSign.MyClick/*.sln", "DocuSign.MyClick/"]
+COPY ["DocuSign.MyClick/DocuSign.MyClick.COVID19Waiver/DocuSign.MyClick.COVID19Waiver.csproj", "DocuSign.MyClick/DocuSign.MyClick.COVID19Waiver/"]
+#COPY ["DocuSign.MyClick/DocuSign.MyClick.COVID19Waiver.UnitTests/DocuSign.MyClick.COVID19Waiver.UnitTests.csproj", "DocuSign.MyClick/DocuSign.MyClick.COVID19Waiver.UnitTests/"]
+#COPY ["DocuSign.MyClick/DocuSign.MyClick.NonDisclosureAgreement/DocuSign.MyClick.NonDisclosureAgreement.csproj",  "DocuSign.MyClick/DocuSign.MyClick.NonDisclosureAgreement/"]
+#COPY ["DocuSign.MyClick/DocuSign.MyClick.NonDisclosureAgreement.UnitTests/DocuSign.MyClick.NonDisclosureAgreement.UnitTests.csproj", "DocuSign.MyClick/DocuSign.MyClick.NonDisclosureAgreement.UnitTests/"]
+#COPY ["DocuSign.MyClick/DocuSign.MyClick.TermsAndConditions/DocuSign.MyClick.TermsAndConditions.csproj", "DocuSign.MyClick/DocuSign.MyClick.TermsAndConditions/"]
+#COPY ["DocuSign.MyClick/DocuSign.MyClick.TermsAndConditions.UnitTests/DocuSign.MyClick.TermsAndConditions.UnitTests.csproj", "DocuSign.MyClick/DocuSign.MyClick.TermsAndConditions.UnitTests/"]
+#COPY ["DocuSign.MyClick/DocuSign.MyClick.UI/DocuSign.MyClick.UI.csproj", "DocuSign.MyClick/DocuSign.MyClick.UI/"]
+
+#WORKDIR /src/DocuSign.MyClick
+RUN ls
+RUN dotnet restore "DocuSign.MyClick/DocuSign.MyClick.COVID19Waiver/DocuSign.MyClick.COVID19Waiver.csproj"
+COPY . .
+#WORKDIR "/src/DocuSign.MyClick/DocuSign.MyClick.COVID19Waiver"
+#RUN find -name "DocuSign.MyClick.COVID19Waiver.csproj" 
+RUN dotnet build "DocuSign.MyClick/DocuSign.MyClick.COVID19Waiver/DocuSign.MyClick.COVID19Waiver.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
+RUN npm i -g @angular/cli
+RUN npm update
+RUN ng version
+ENV PATH "$PATH:/usr/bin/node"
+RUN dotnet publish "DocuSign.MyClick/DocuSign.MyClick.COVID19Waiver/DocuSign.MyClick.COVID19Waiver.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "DocuSign.MyClick.COVID19Waiver.dll"]
