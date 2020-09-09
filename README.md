@@ -86,7 +86,7 @@ In order to start all four projects at once docker-copose file must be used.
  ```
    docker-compose up
 ```
-5. The application must be started in your defaiult browser by following URL: http://localhost:8088/myclickwrap/
+5. Open application by following URL: http://127.0.0.1:8088/myclickwrap/
 6. To stop application run: 
 ```
    docker-compose down
