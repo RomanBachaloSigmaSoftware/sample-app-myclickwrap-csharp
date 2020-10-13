@@ -1,5 +1,5 @@
 {
   "Title": "Terms and Conditions",
-  "Description": "Terms And Conditions Info",
-  "NotAuthenticatedMessage": "You are not authenticated. Please refere to the instructions to configure JWT authtorization."
+  "Description": "Terms and Conditions Info",
+  "NotAuthenticatedMessage": "You are not authenticated. Please refere to the instructions to configure JWT authorization."
 }

@@ -5,11 +5,11 @@
     "URL": "https://developers.docusign.com/"
   },
   "Link2": {
-    "Title": "Get a free Demo Account",
+    "Title": "Get a free demo account",
     "URL": "https://go.docusign.com/sandbox/productshot/"
   },
   "Link3": {
     "Title": "ClickAPI",
-    "URL": "https://developers.docusign.com/click-api"
+    "URL": "https://developers.docusign.com/docs/click-api/"
   }
 }
