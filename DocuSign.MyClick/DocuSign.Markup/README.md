@@ -42,4 +42,4 @@ or
 gulp
 ```
 
-commands for building project.
+commands to build the project.
