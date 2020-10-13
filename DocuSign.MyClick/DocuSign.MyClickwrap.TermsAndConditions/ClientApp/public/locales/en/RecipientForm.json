@@ -1,6 +1,6 @@
 {
   "Title": "Add recipient",
-  "Description": "Enter the name and email addresses of the person you want to send the document.",
+  "Description": "Enter the name and email address of the person you want to receive the document.",
   "FullName": "Full name",
   "Email": "E-mail",
   "SubmitButton": "Continue",
