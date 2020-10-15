@@ -1,8 +1,0 @@
-.btn {
-  text-transform: uppercase;
-  min-width: 82px;
-
-  @include media-breakpoint-up(md){
-    min-width: 106px;
-  }
-}
