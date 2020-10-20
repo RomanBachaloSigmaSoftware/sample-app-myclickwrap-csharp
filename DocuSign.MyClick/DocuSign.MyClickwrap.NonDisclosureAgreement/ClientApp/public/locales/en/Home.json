@@ -1,5 +1,5 @@
 {
   "Title": "Nondisclosure agreement",
-  "Description": "Nondisclosure agreement Info",
-  "NotAuthenticatedMessage": "You are not authenticated. Please refere to the instructions to configure JWT authorization."
+  "Description": "All parties are required to complete this agreement prior to gaining access to confidential company information.",
+  "NotAuthenticatedMessage": "You are not authenticated. Please refer to the instructions to configure JWT authorization."
 }
