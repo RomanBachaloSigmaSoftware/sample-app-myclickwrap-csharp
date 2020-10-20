@@ -8,7 +8,7 @@ MyClickwrap is a sample application written in ASP.NET Core 3.1 (server) and Rea
 
 MyClickwrap contains three different projects for three Click API use cases bundled into a single solution.
 1. **COVID-19 Health Declaration:** This scenario shows how the Click API can be used to build a simple tool to enable organizations to capture consent from individuals releasing the organization from responsibility in case they contract COVID-19 while on their premises. 
-2. **Non-Disclosure Agreement (NDA):** This scenario shows how the Click API can be used for visitors to sign an NDA before they can attend a meeting (similar to a Lobby application). The visitor has to provide their email address, so that is used to secure the agreement and call it server-side.
+2. **Nondisclosure Agreement (NDA):** This scenario shows how the Click API can be used for visitors to sign an NDA before they can attend a meeting (similar to a Lobby application). The visitor has to provide their email address, so that is used to secure the agreement and call it server-side.
 3. **Terms and Conditions.** This scenario shows how the Click API can be used to enable your application to capture users' consent to terms and conditions and a privacy policy.
 
 Scenarios showcase Click functionality and using the Click API. Each Scenario demonstrates the following:
