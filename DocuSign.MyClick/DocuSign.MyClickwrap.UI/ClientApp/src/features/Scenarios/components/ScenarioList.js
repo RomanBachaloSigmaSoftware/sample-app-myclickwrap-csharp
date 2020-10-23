@@ -12,7 +12,7 @@ export function ScenarioList(props) {
 
   return (
     <Tab.Container id="left-tabs-example" defaultActiveKey="scenario1">
-      <div className="col-lg-6 col-xl-5">
+      <div className="col-lg-6 col-xl-6">
         <h2 className="h2 text-center text-md-left"> {t("Title")}</h2>
         <Nav className="scenario-tabs  flex-column">
           <Scenario
@@ -40,7 +40,7 @@ export function ScenarioList(props) {
           />
         </Nav>
       </div>
-      <div className="col-lg-6 col-xl-7">
+      <div className="col-lg-6 col-xl-6">
         <Tab.Content id="content">
           <ScenarioDescription
             id="scenario1"
