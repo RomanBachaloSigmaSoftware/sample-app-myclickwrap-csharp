@@ -8,7 +8,6 @@ import "./assets/scss/main.scss";
 const App = () => {
   const routes = (
     <Switch>
-      <Route path="/about" component={About} />
       <Route path="/" component={Home} />
     </Switch>
   );
