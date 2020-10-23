@@ -39,7 +39,7 @@ namespace DocuSign.MyClickwrap.COVID19Waiver.UnitTests
                 ClickwrapName = "Covid19Waiver"
             };
             _clickWrapService
-                .Setup(c => c.GetClickWrap(It.IsAny<string>(), It.IsAny<string>()))
+                .Setup(c => c.GetClickWrap(It.IsAny<string>()))
                 .Returns(() => clickWrap);
 
             // Act

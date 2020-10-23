@@ -21,7 +21,7 @@ namespace DocuSign.MyClickwrap.COVID19Waiver.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ClickWrap clickWrap = _clickWrapService.GetClickWrap(Context.Account.Id, Context.User.Id);
+            ClickWrap clickWrap = _clickWrapService.GetClickWrap(Context.Account.Id);
 
             return Ok(
                 new ResponseClickWrapModel
@@ -29,7 +29,6 @@ namespace DocuSign.MyClickwrap.COVID19Waiver.Controllers
                     ClickWrap = clickWrap,
                     DocuSignBaseUrl = Context.Account.BaseUri,
                     AccountId = Context.Account.Id,
-                    UserId = Context.User.Id
                 });
         }
     }

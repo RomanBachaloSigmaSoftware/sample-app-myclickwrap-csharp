@@ -4,6 +4,6 @@ namespace DocuSign.MyClickwrap.TermsAndConditions.Services
 {
     public interface IClickWrapService
     {
-        ClickWrap GetClickWrap(string accountId, string userId);
+        ClickWrap GetClickWrap(string accountId);
     }
 }

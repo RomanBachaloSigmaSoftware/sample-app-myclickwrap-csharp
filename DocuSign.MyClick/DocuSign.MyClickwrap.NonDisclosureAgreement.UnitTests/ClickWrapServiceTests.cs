@@ -45,7 +45,7 @@ namespace DocuSign.MyClickwrap.NonDisclosureAgreement.UnitTests
                 });
 
             //Act
-            var response = _sut.GetClickWrap(AccountId, UserId);
+            var response = _sut.GetClickWrap(AccountId);
 
             //Assert 
             response.Should().BeEquivalentTo(
@@ -72,7 +72,7 @@ namespace DocuSign.MyClickwrap.NonDisclosureAgreement.UnitTests
             //Act
             //Assert 
             Assert.Throws<ClickWrapNotFoundException>(
-                () => _sut.GetClickWrap(AccountId, UserId));
+                () => _sut.GetClickWrap(AccountId));
         }
 
         [Fact]
@@ -90,7 +90,7 @@ namespace DocuSign.MyClickwrap.NonDisclosureAgreement.UnitTests
             //Act
             //Assert 
             Assert.Throws<AuthenticationException>(
-                () => _sut.GetClickWrap(AccountId, UserId));
+                () => _sut.GetClickWrap(AccountId));
         }
 
         [Fact]
@@ -108,7 +108,7 @@ namespace DocuSign.MyClickwrap.NonDisclosureAgreement.UnitTests
             //Act
             //Assert 
             Assert.Throws<InvalidOperationException>(
-                () => _sut.GetClickWrap(AccountId, UserId));
+                () => _sut.GetClickWrap(AccountId));
         }
 
         [Fact]
@@ -118,7 +118,7 @@ namespace DocuSign.MyClickwrap.NonDisclosureAgreement.UnitTests
             //Act
             //Assert 
             Assert.Throws<ArgumentNullException>(
-                () => _sut.GetClickWrap(null, UserId));
+                () => _sut.GetClickWrap(null));
         }
 
         [Fact]
@@ -128,7 +128,7 @@ namespace DocuSign.MyClickwrap.NonDisclosureAgreement.UnitTests
             //Act
             //Assert 
             Assert.Throws<ArgumentNullException>(
-                () => _sut.GetClickWrap(AccountId, null));
+                () => _sut.GetClickWrap(AccountId));
         }
     }
 }
