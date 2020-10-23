@@ -51,7 +51,6 @@ namespace DocuSign.MyClickwrap.COVID19Waiver.UnitTests
             {
                 AccountId = account.Id,
                 ClickWrap = clickWrap,
-                UserId = user.Id,
                 DocuSignBaseUrl = account.BaseUri
             }));
         }

@@ -120,15 +120,5 @@ namespace DocuSign.MyClickwrap.TermsAndConditions.UnitTests
             Assert.Throws<AuthenticationException>(
                 () => _sut.GetClickWrap(AccountId));
         }
-
-        [Fact]
-        public void GetClickWrap_WhenUserIdIsNull_ThrowsArgumentNullException()
-        {
-            //Arrange
-            //Act
-            //Assert 
-            Assert.Throws<ArgumentNullException>(
-                () => _sut.GetClickWrap(AccountId));
-        }
     }
 }
