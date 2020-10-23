@@ -39,7 +39,7 @@ namespace DocuSign.MyClickwrap.NonDisclosureAgreement.UnitTests
                 ClickwrapName = "Covid19Waiver"
             };
             _clickWrapService
-                .Setup(c => c.GetClickWrap(It.IsAny<string>(), It.IsAny<string>()))
+                .Setup(c => c.GetClickWrap(It.IsAny<string>()))
                 .Returns(() => clickWrap);
 
             // Act
@@ -51,7 +51,6 @@ namespace DocuSign.MyClickwrap.NonDisclosureAgreement.UnitTests
             {
                 AccountId = account.Id,
                 ClickWrap = clickWrap,
-                UserId = user.Id,
                 DocuSignBaseUrl = account.BaseUri
             }));
         }

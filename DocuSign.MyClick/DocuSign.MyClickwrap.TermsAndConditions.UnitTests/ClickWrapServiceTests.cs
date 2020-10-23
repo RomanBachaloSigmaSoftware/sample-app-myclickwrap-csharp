@@ -38,7 +38,7 @@ namespace DocuSign.MyClickwrap.TermsAndConditions.UnitTests
             //Act
             //Assert 
             Assert.Throws<ArgumentNullException>(
-                () => _sut.GetClickWrap(null, UserId));
+                () => _sut.GetClickWrap(null));
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace DocuSign.MyClickwrap.TermsAndConditions.UnitTests
                 });
 
             //Act
-            ClickWrap response = _sut.GetClickWrap(AccountId, UserId);
+            ClickWrap response = _sut.GetClickWrap(AccountId);
 
             //Assert 
             response.Should().BeEquivalentTo(
@@ -82,7 +82,7 @@ namespace DocuSign.MyClickwrap.TermsAndConditions.UnitTests
             //Act
             //Assert 
             Assert.Throws<ClickWrapNotFoundException>(
-                () => _sut.GetClickWrap(AccountId, UserId));
+                () => _sut.GetClickWrap(AccountId));
         }
 
         [Fact]
@@ -100,7 +100,7 @@ namespace DocuSign.MyClickwrap.TermsAndConditions.UnitTests
             //Act
             //Assert 
             Assert.Throws<InvalidOperationException>(
-                () => _sut.GetClickWrap(AccountId, UserId));
+                () => _sut.GetClickWrap(AccountId));
         }
 
         [Fact]
@@ -118,17 +118,7 @@ namespace DocuSign.MyClickwrap.TermsAndConditions.UnitTests
             //Act
             //Assert 
             Assert.Throws<AuthenticationException>(
-                () => _sut.GetClickWrap(AccountId, UserId));
-        }
-
-        [Fact]
-        public void GetClickWrap_WhenUserIdIsNull_ThrowsArgumentNullException()
-        {
-            //Arrange
-            //Act
-            //Assert 
-            Assert.Throws<ArgumentNullException>(
-                () => _sut.GetClickWrap(AccountId, null));
+                () => _sut.GetClickWrap(AccountId));
         }
     }
 }

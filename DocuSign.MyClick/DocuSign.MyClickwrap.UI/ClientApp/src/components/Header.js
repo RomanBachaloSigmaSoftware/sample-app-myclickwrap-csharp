@@ -24,11 +24,6 @@ export const Header = () => {
                             <span className="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-link" to="/about">
-                            {t("AboutLink")}
-                        </NavLink>
-                    </li>
                 </ul>
             </div>
         </nav>

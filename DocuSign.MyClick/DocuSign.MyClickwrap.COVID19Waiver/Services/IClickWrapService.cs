@@ -4,6 +4,6 @@ namespace DocuSign.MyClickwrap.COVID19Waiver.Services
 {
     public interface IClickWrapService
     {
-        ClickWrap GetClickWrap(string accountId, string userId);
+        ClickWrap GetClickWrap(string accountId);
     }
 }

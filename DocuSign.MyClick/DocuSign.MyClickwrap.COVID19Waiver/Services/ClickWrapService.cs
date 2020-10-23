@@ -20,16 +20,11 @@ namespace DocuSign.MyClickwrap.COVID19Waiver.Services
             _docuSignApiProvider = docuSignApiProvider;
         }
 
-        public ClickWrap GetClickWrap(string accountId, string userId)
+        public ClickWrap GetClickWrap(string accountId)
         {
             if (accountId == null)
             {
                 throw new ArgumentNullException(nameof(accountId));
-            }
-
-            if (userId == null)
-            {
-                throw new ArgumentNullException(nameof(userId));
             }
 
             var request = new RestRequest($"/accounts/{accountId}/clickwraps", DataFormat.Json);
