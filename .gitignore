@@ -8,3 +8,5 @@
 **/node_modules
 **/build
 .env.local
+appsettings.json
+private.key
