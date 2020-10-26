@@ -4,7 +4,6 @@ import $ from "jquery";
 import { InputText } from "../../../components/InputText";
 
 const initialState = {
-  fullName: "",
   email: "",
 };
 
@@ -44,11 +43,8 @@ export const RecipientForm = ({ onSave }) => {
   }
 
   function formIsValid() {
-    const { fullName, email } = userData;
+    const { email } = userData;
     const errors = {};
-    if (!fullName) {
-      errors.fullName = t("Error.FullName");
-    }
     if (!email) {
       errors.email = t("Error.Email");
     }
@@ -94,15 +90,6 @@ export const RecipientForm = ({ onSave }) => {
                 {errors.onSave && (
                   <div className="alert alert-danger mt-2">{errors.onSave}</div>
                 )}
-                <div className="form-group">
-                  <InputText
-                    name="fullName"
-                    label={t("FullName")}
-                    value={userData.fullName}
-                    onChange={handleChange}
-                    error={errors.fullName}
-                  />
-                </div>
                 <div className="form-group">
                   <InputText
                     name="email"

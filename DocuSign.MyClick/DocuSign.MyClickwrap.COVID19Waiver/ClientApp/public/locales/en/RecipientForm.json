@@ -1,8 +1,8 @@
 {
-  "Title": "Visitor Portal",
-  "Description": "Enter your name and email address to access the Visitor Portal.",
+  "Title": "Visitor Kiosk",
+  "Description": "Enter your name and email address to sign in to the simulated visitor kiosk for this sample app. This information is used for your demonstration purposes only.",
   "FullName": "Full name",
-  "Email": "E-mail",
+  "Email": "Email address",
   "SubmitButton": "Continue",
   "Error": {
     "FullName": "Please fill out this field.",

@@ -1,11 +1,13 @@
 {
-  "Title": "Visitor Portal",
-  "Description": "Enter your name and email address to access the Visitor Portal.",
+  "Title": "Partner Portal",
+  "Description": "Enter the details below to join the simlulated partner portal for this sample app. This information is used for your demonstration purposes only.",
   "FullName": "Full name",
-  "Email": "E-mail",
+  "Email": "Email",
+  "Company": "Company Name",
   "SubmitButton": "Continue",
   "Error": {
     "FullName": "Please fill out this field.",
-    "Email": "Please fill out this field."
+    "Email": "Please fill out this field.",
+    "Company": "Please fill out this field."
   }
 }

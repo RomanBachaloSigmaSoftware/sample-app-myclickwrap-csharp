@@ -6,6 +6,7 @@ import { InputText } from "../../../components/InputText";
 const initialState = {
   fullName: "",
   email: "",
+  company: "",
 };
 
 export const RecipientForm = ({ onSave }) => {
@@ -44,13 +45,16 @@ export const RecipientForm = ({ onSave }) => {
   }
 
   function formIsValid() {
-    const { fullName, email } = userData;
+    const { fullName, email, company } = userData;
     const errors = {};
     if (!fullName) {
       errors.fullName = t("Error.FullName");
     }
     if (!email) {
       errors.email = t("Error.Email");
+    }
+    if (!company) {
+      errors.email = t("Error.Company");
     }
     setErrors(errors);
     return Object.keys(errors).length === 0;
@@ -110,6 +114,15 @@ export const RecipientForm = ({ onSave }) => {
                     value={userData.email}
                     onChange={handleChange}
                     error={errors.email}
+                  />
+                </div>
+                <div className="form-group">
+                  <InputText
+                    name="company"
+                    label={t("Company")}
+                    value={userData.company}
+                    onChange={handleChange}
+                    error={errors.company}
                   />
                 </div>
                 <div className="buttons-group d-flex flex-wrap justify-content-end pt-3">
