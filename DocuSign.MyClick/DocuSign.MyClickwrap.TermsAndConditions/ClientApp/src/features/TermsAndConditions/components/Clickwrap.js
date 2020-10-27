@@ -9,7 +9,8 @@ export const ClickWrap = ({ accountId, clickWrapId, userEmail, baseUrl }) => {
           environment: baseUrl,
           accountId: accountId,
           clickwrapId: clickWrapId,
-          clientUserId: userEmail,
+              // Adding randomness here to support using the same email twice. Normally, if you accepted a clickwrap, you won't see it a second time
+              clientUserId: userEmail + Math.random(),
         },
         "#ds-clickWrap"
       )}
