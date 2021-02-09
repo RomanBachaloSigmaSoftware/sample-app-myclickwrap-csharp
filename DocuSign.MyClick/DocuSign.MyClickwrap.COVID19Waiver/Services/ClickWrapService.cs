@@ -11,7 +11,7 @@ namespace DocuSign.MyClickwrap.COVID19Waiver.Services
 {
     public class ClickWrapService : IClickWrapService
     {
-        private const string ClickWrapName = "Covid19Waiver";
+        private const string _clickWrapName = "Covid19Waiver";
 
         private readonly IDocuSignApiProvider _docuSignApiProvider;
 
@@ -27,7 +27,7 @@ namespace DocuSign.MyClickwrap.COVID19Waiver.Services
                 throw new ArgumentNullException(nameof(accountId));
             }
 
-            var request = new RestRequest($"/accounts/{accountId}/clickwraps", DataFormat.Json);
+            var request = new RestRequest($"/accounts/{accountId}/clickwraps?name={_clickWrapName}", DataFormat.Json);
 
             IRestResponse response = _docuSignApiProvider.DocuSignClickApiRestClient.Get(request);
 
@@ -49,11 +49,11 @@ namespace DocuSign.MyClickwrap.COVID19Waiver.Services
 
             ClickWrap clickWrap = clickwrapsResponse
                 .Clickwraps
-                .FirstOrDefault(x => x.ClickwrapName == ClickWrapName);
+                .FirstOrDefault(x => x.ClickwrapName == _clickWrapName);
 
             if (clickWrap == null)
             {
-                throw new ClickWrapNotFoundException(ClickWrapName);
+                throw new ClickWrapNotFoundException(_clickWrapName);
             }
 
             return clickWrap;

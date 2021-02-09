@@ -26,7 +26,7 @@ namespace DocuSign.MyClickwrap.TermsAndConditions.Services
                 throw new ArgumentNullException(nameof(accountId));
             }
 
-            var request = new RestRequest($"/accounts/{accountId}/clickwraps", DataFormat.Json);
+            var request = new RestRequest($"/accounts/{accountId}/clickwraps?name={_clickWrapName}", DataFormat.Json);
 
             IRestResponse response = _docuSignApiProvider.DocuSignClickApiRestClient.Get(request);
 
