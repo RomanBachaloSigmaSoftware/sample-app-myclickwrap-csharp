@@ -20,7 +20,7 @@ Scenarios showcase Click functionality and using the Click API. Each Scenario de
 ## Installation
 
 ### Prerequisites
-* A DocuSign developer account (email and password) on [demo.docusign.net](https://demo.docusign.net). If you don't have a developer account, create a [free account](https://go.docusign.com/sandbox/productshot/?elqCampaignId=16535).
+* A DocuSign developer account (email and password) on [demo.docusign.net](https://demo.docusign.net). If you don't have a developer account, create a [free account](https://go.docusign.com/o/sandbox/).
 * A DocuSign integration key (a client ID) that is configured to use **JSON Web Token (JWT) Grant**.
    You will need the **integration key** itself and its **RSA key pair**. To use this application, you must add your application's **Redirect URI** to your integration key. This [**video**](https://www.youtube.com/watch?v=GgDqa7-L0yo) demonstrates how to create an integration key (client ID) for a user application such as this example. 
 * C# .NET Core version 3.1 or later.
