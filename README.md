@@ -1,7 +1,7 @@
 # ASP.NET Core 3.1 and React: MyClickwrap Sample Application
 
 ### GitHub repo: sample-app-myclickwrap-csharp
-Visit [MyClickwrap](https://github.com/docusign/sample-app-myclickwrap-csharp/) on DocuSign to see this code publicly hosted
+Visit [MyClickwrap](https://myclickwrap.sampleapps.docusign.com/myclickwrap/) on DocuSign to see this code publicly hosted
 
 ## Introduction
 MyClickwrap is a sample application written in ASP.NET Core 3.1 (server) and React 9 (client). You can find a live instance running at [https://github.com/docusign/sample-app-myclickwrap-csharp](https://github.com/docusign/sample-app-myclickwrap-csharp).
