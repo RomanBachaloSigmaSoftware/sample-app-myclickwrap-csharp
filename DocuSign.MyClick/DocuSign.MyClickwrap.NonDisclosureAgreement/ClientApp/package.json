@@ -10,7 +10,7 @@
     "i18next": "^19.6.2",
     "i18next-xhr-backend": "^3.2.2",
     "jquery": "^3.5.1",
-    "merge": "^1.2.1",
+    "merge": "^2.1.1",
     "mkdirp": "^1.0.4",
     "move-cli": "^1.2.1",
     "mvdir": "^1.0.17",
