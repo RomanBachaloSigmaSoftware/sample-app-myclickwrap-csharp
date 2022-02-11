@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "/myclickwrap",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bootstrap": "^4.5.2",
     "browser-sync": "^2.26.12",
     "html-react-parser": "^0.13.0",
@@ -34,7 +34,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.6",
     "jest-dom": "^4.0.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "prettier": "^2.1.1",
     "react-test-render": "^1.1.2",
     "typescript": "^3.9.7"
