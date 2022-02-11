@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
- nginx: 
+ nginx:
     image: nginx:latest
     container_name: local_nginx
     volumes:
@@ -16,17 +16,17 @@ services:
       - docusign.myclickwrap.covid19waiver
       - docusign.myclickwrap.termsandconditions
       - docusign.myclickwrap.ui
- 
+
  docusign.myclickwrap.covid19waiver:
     image: ${DOCKER_REGISTRY-}docusignmyclickcovid19waiver
     container_name: covid19waiver
     environment:
-      - DocuSign__IntegrationKey= 
+      - DocuSign__IntegrationKey=
       - DocuSign__SecretKey=
       - DocuSign__AuthServer=account-d.docusign.com
-      - DocuSign__AuthorizationEndpoint=https://account-d.docusign.com/oauth/auth 
+      - DocuSign__AuthorizationEndpoint=https://account-d.docusign.com/oauth/auth
       - DocuSign__TokenEndpoint=https://account-d.docusign.com/oauth/token
-      - DocuSign__UserInformationEndpoint=https://account-d.docusign.com/oauth/userinfo 
+      - DocuSign__UserInformationEndpoint=https://account-d.docusign.com/oauth/userinfo
       - DocuSign__UserId=
       - DocuSign__RSAPrivateKeyFile=/app/Certificate/RSA.pem
     volumes:
@@ -39,15 +39,15 @@ services:
     image: ${DOCKER_REGISTRY-}docusignmyclicknondisclosureagreement
     container_name: nondisclosureagreement
     environment:
-      - DocuSign__IntegrationKey= 
+      - DocuSign__IntegrationKey=
       - DocuSign__SecretKey=
       - DocuSign__AuthServer=account-d.docusign.com
-      - DocuSign__AuthorizationEndpoint=https://account-d.docusign.com/oauth/auth 
+      - DocuSign__AuthorizationEndpoint=https://account-d.docusign.com/oauth/auth
       - DocuSign__TokenEndpoint=https://account-d.docusign.com/oauth/token
-      - DocuSign__UserInformationEndpoint=https://account-d.docusign.com/oauth/userinfo 
+      - DocuSign__UserInformationEndpoint=https://account-d.docusign.com/oauth/userinfo
       - DocuSign__UserId=
       - DocuSign__RSAPrivateKeyFile=/app/Certificate/RSA.pem
-     volumes:
+    volumes:
       - /path to folder with certificate:/app/Certificate
     build:
       context: .
@@ -59,12 +59,12 @@ services:
      image: ${DOCKER_REGISTRY-}docusignmyclicktermsandconditions
      container_name: termsandconditions
      environment:
-       - DocuSign__IntegrationKey= 
+       - DocuSign__IntegrationKey=
        - DocuSign__SecretKey=
        - DocuSign__AuthServer=account-d.docusign.com
-       - DocuSign__AuthorizationEndpoint=https://account-d.docusign.com/oauth/auth 
+       - DocuSign__AuthorizationEndpoint=https://account-d.docusign.com/oauth/auth
        - DocuSign__TokenEndpoint=https://account-d.docusign.com/oauth/token
-       - DocuSign__UserInformationEndpoint=https://account-d.docusign.com/oauth/userinfo 
+       - DocuSign__UserInformationEndpoint=https://account-d.docusign.com/oauth/userinfo
        - DocuSign__UserId=
        - DocuSign__RSAPrivateKeyFile=/app/Certificate/RSA.pem
      volumes:
@@ -72,17 +72,17 @@ services:
      build:
        context: .
        dockerfile: DocuSign.MyClickwrap.TermsAndConditions/Dockerfile.local
-  
+
  docusign.myclickwrap.ui:
      image: ${DOCKER_REGISTRY-}docusignmyclickui
      container_name: myclickwrap.ui
      environment:
-       - DocuSign__IntegrationKey= 
+       - DocuSign__IntegrationKey=
        - DocuSign__SecretKey=
        - DocuSign__AuthServer=account-d.docusign.com
-       - DocuSign__AuthorizationEndpoint=https://account-d.docusign.com/oauth/auth 
+       - DocuSign__AuthorizationEndpoint=https://account-d.docusign.com/oauth/auth
        - DocuSign__TokenEndpoint=https://account-d.docusign.com/oauth/token
-       - DocuSign__UserInformationEndpoint=https://account-d.docusign.com/oauth/userinfo 
+       - DocuSign__UserInformationEndpoint=https://account-d.docusign.com/oauth/userinfo
        - DocuSign__UserId=
        - DocuSign__RSAPrivateKeyFile=/app/Certificate/RSA.pem
      volumes:
