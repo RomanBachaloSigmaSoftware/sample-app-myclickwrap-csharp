@@ -13,7 +13,7 @@ COPY . .
 RUN dotnet build "DocuSign.MyClick/DocuSign.MyClickwrap.NonDisclosureAgreement/DocuSign.MyClickwrap.NonDisclosureAgreement.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 RUN npm update
 RUN npm install react-bootstrap
