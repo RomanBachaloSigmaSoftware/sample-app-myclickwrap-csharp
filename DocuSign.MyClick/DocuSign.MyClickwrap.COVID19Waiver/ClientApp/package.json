@@ -19,7 +19,6 @@
     "react-i18next": "^11.7.0",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.0.1",
     "reactstrap": "^6.3.0",
     "rimraf": "^2.6.2"
   },
@@ -27,7 +26,7 @@
     "@testing-library/react": "^10.4.8",
     "ajv": "^6.9.1",
     "cross-env": "^5.2.0",
-    "eslint-config-react-app": "^4.0.1",
+    "eslint-config-react-app": "^7.0.0",
     "eslint-plugin-flowtype": "^2.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
@@ -35,6 +34,7 @@
     "jest-dom": "^4.0.0",
     "node-sass": "^7.0.0",
     "prettier": "^2.0.5",
+    "react-scripts": "^5.0.0",
     "react-test-render": "^1.1.2",
     "typescript": "^3.5.2"
   },
