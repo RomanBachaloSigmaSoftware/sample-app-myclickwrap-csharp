@@ -38,8 +38,11 @@
     "node-sass": "^7.0.0",
     "prettier": "^2.0.5",
     "react-scripts": "^5.0.0",
-    "react-test-render": "^1.1.2",
+    "react-test-renderer": "^16.14.0",
     "typescript": "^3.5.2"
+  },
+  "overrides": {
+    "nth-check": "2.1.1"
   },
   "eslintConfig": {
     "extends": "react-app"
