@@ -4,7 +4,7 @@
 Visit [MyClickwrap](https://myclickwrap.sampleapps.docusign.com/myclickwrap/) on DocuSign to see this code publicly hosted
 
 ## Introduction
-MyClickwrap is a sample application written in ASP.NET Core 3.1 (server) and React 9 (client). You can find a live instance running at [https://github.com/docusign/sample-app-myclickwrap-csharp](https://github.com/docusign/sample-app-myclickwrap-csharp).
+MyClickwrap is a sample application written in ASP.NET Core 3.1 (server) and React 9 (client). You can find a live instance running at [https://myclickwrap.sampleapps.docusign.com/myclickwrap/](https://myclickwrap.sampleapps.docusign.com/myclickwrap/).
 
 MyClickwrap contains three different projects for three Click API use cases bundled into a single solution.
 1. **COVID-19 Health Declaration:** This scenario shows how the Click API can be used to build a simple tool to enable organizations to capture consent from individuals releasing the organization from responsibility in case they contract COVID-19 while on their premises. 
